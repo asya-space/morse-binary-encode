@@ -38,7 +38,7 @@ const MORSE_TABLE = {
 };
 
 function decode(str) {
-    let newStr = str.replace(/\s/g, "**********").split(''),
+    let newStr = str.toLowerCase().replace(/\s/g, "**********").split(''),
       convertStr = [],
        objKeys = Object.keys(MORSE_TABLE),
        objValues = Object.values(MORSE_TABLE);
