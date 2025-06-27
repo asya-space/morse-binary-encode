@@ -40,8 +40,8 @@ const morseTable = {
 function encodeStr(str) {
     let newStr = str.replace(/\s/g, "**********").split(''),
       convertStr = [],
-       objKeys = Object.keys(MORSE_TABLE),
-       objValues = Object.values(MORSE_TABLE);
+       objKeys = Object.keys(morseTable),
+       objValues = Object.values(morseTable);
   newStr.forEach((item) => {
     if(item === "*") {
       convertStr.push(item)
