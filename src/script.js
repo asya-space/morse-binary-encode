@@ -39,4 +39,3 @@ function encodeToBinaryMorse(str) {
       const output = encodeToBinaryMorse(input);
       document.getElementById("output").textContent = output || '(пусто)';
     }
-encode();
