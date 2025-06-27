@@ -39,36 +39,45 @@ const morseTable = {
 
 function encodeStr(str) {
     let newStr = str.toLowerCase().replace(/\s/g, "**********").split(''),
-      convertStr = [],
-       objKeys = Object.keys(morseTable),
-       objValues = Object.values(morseTable);
-  newStr.forEach((item) => {
-    if(item === "*") {
-      convertStr.push(item)
-    }
-    objValues.forEach((letter, pos) => {
-    if(letter === item) {
-      convertStr.push(objKeys[pos]);
-    }})
+        convertStr = [],
+        objKeys = Object.keys(morseTable),
+        objValues = Object.values(morseTable);
+    newStr.forEach((item) => {
+        if(item === "*") {
+        convertStr.push(item);
+      }
+      objValues.forEach((letter, pos) => {
+          if(letter === item) {
+          convertStr.push(objKeys[pos]);
+      }})
   });
   let endArr = [];
   for(let symbols of convertStr) {
       symbols = symbols.replace(/[-]/gi, 11).replace(/[.]/gi, 10)
-    if(symbols.length < 10 && symbols !== "*") {
-      let count = symbols.length;
-      let zero = "0"
-      while(count < 10) {
-        symbols = zero + symbols;
-        count++;
+      if(symbols.length < 10 && symbols !== "*") {
+        let count = symbols.length,
+            zero = "0"
+        while(count < 10) {
+            symbols = zero + symbols;
+            count++;
+          }
       }
-    }
       endArr.push(symbols);
-  }
-  return endArr.join('');
+    }
+    return endArr.join('');
 }
 
 function encode() {
-      const input = document.getElementById("inputText").value;
-      const output = encodeStr(input);
-      document.getElementById("output").textContent = output || '(empty)';
+    const input = document.getElementById("inputText").value;
+    const output = encodeStr(input);
+    document.getElementById("output").textContent = output || '(empty)';
     }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("inputText");
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      encode();
+    }
+  });
+});
