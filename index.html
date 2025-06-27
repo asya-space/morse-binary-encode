@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Morse Binary Encoder</title>
-    <style>
-        body {
-            font-family: 'Helvetica', sans-serif;
-            background: #111;
-            color: #eee;
-            padding: 2rem;
-            max-width: 600px;
-            margin: auto;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <title>Morse Binary Encoder</title>
+        <style>
+            body {
+                margin: auto;
+                padding: 2rem;
+                max-width: 600px;
+                font-family: 'Helvetica', sans-serif;
+                background: #111;
+                color: #eee;
+            }
 
-        input, 
-        button {
-            padding: 0.5rem;
-            font-size: 1rem;
-            width: 100%;
-            margin-bottom: 1rem;
-            border-radius: 0.3rem;
-        }
+            input, 
+            button {
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                width: 100%;
+                font-size: 1rem;
+                border-radius: 0.3rem;
+            }
 
-        button {
-            display: block;
-            margin: 0 auto;
-            width: 30%;
-        }
+            button {
+                display: block;
+                margin: 0 auto;
+                width: 30%;
+            }
 
-        button:hover {
-            background-color: #f69a44;
-        }
+            button:hover {
+                background-color: #f69a44;
+            }
 
-        #output {
-            background: #222;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            width: 50%;
-        }
-    </style>
-</head>
-<body>
-  <h1>💫 Encode to binary Morse</h1>
-  <input id="inputText" type="text" placeholder="Enter text please. Example: Don't try to find me">
-  <button onclick="encode()">Encode?</button>
-  <h3>☑️ Result:</h3>
-  <div id="output"></div>
-  <script src="script.js"></script>
-</body>
+            #output {
+                padding: 1rem;
+                width: 50%;
+                background: #222;
+                border-radius: 0.5rem;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>💫 Encode to binary Morse</h1>
+        <input id="inputText" type="text" placeholder="Enter text please. Example: Don't try to find me">
+        <button onclick="encode()">Encode?</button>
+        <h3>☑️ Result:</h3>
+        <div id="output"></div>
+        <script src="src/script.js"></script>
+    </body>
 </html>
