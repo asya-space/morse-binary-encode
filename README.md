@@ -1,5 +1,5 @@
 Created function for encoding some text or messages.
-1. Deploy:
+1. [Deploy](https://asya-space.github.io/morse-binary-encode/):
 ![image](https://github.com/user-attachments/assets/3d245215-cbc9-4579-8ded-4ed9fa18f6e0)
 
 
