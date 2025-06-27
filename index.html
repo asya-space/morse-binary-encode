@@ -4,41 +4,95 @@
         <meta charset="UTF-8">
         <title>Morse Binary Encoder</title>
         <style>
+            * {
+                box-sizing: border-box;
+            }
+
             body {
-                margin: auto;
+                margin: 0;
                 padding: 2rem;
-                max-width: 600px;
-                font-family: 'Helvetica', sans-serif;
-                background: #111;
-                color: #eee;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+                font-family: 'Segoe UI', sans-serif;
+                background-color: #0a0a0a;
+                color: #f3f3f3;
+                transition: all 0.3s ease;
             }
 
-            input, 
-            button {
-                margin-bottom: 1rem;
-                padding: 0.5rem;
+            h1 {
+                color: #ffa94d;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            input, button {
+                padding: 0.7rem 1rem;
                 width: 100%;
+                max-width: 500px;
                 font-size: 1rem;
-                border-radius: 0.3rem;
+                border: none;
+                border-radius: 0.4rem;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            input {
+                margin-bottom: 1rem;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #f3f3f3;
+            }
+
+            input::placeholder {
+                color: #aaa;
             }
 
             button {
-                display: block;
-                margin: 0 auto;
-                width: 30%;
+                margin-bottom: 2rem;
+                font-weight: bold;
+                background-color: rgba(255, 165, 0, 0.15);
+                color: #ffa94d;
+                cursor: pointer;
+                box-shadow: 0 0 0 rgba(255, 165, 0, 0);
+                transition: all 0.3s ease;
             }
 
             button:hover {
-                background-color: #f69a44;
+                background-color: rgba(255, 165, 0, 0.3);
+                color: #ffe8cc;
+                box-shadow: 
+                    0 0 8px rgb(255, 221, 0),
+                    0 0 12px rgba(255, 165, 0, 0.4),
+                    0 0 16px rgba(255, 165, 0, 0.2);
             }
 
             #output {
                 padding: 1rem;
-                width: 50%;
-                background: #222;
-                border-radius: 0.5rem;
+                width: 100%;
+                max-width: 500px;
+                min-height: 60px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #ffdfb3;
+                border-radius: 0.6rem;
                 word-wrap: break-word;
                 white-space: pre-wrap;
+                box-shadow: 0 0 10px rgba(255, 165, 0, 0.1);
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding: 1rem;
+                }
+
+                input, 
+                button, 
+                #output {
+                    max-width: 100%;
+                }
+
+                h1 {
+                    font-size: 1.5rem;
+                }
             }
         </style>
     </head>
