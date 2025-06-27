@@ -37,10 +37,32 @@ const MORSE_TABLE = {
     '-----':  '0',
 };
 
-function decode(expr) {
-    // write your solution here
-}
-
-module.exports = {
-    decode
+function decode(str) {
+    let newStr = str.replace(/\s/g, "**********").split(''),
+      convertStr = [],
+       objKeys = Object.keys(MORSE_TABLE),
+       objValues = Object.values(MORSE_TABLE);
+  newStr.forEach((item) => {
+    if(item === "*") {
+      convertStr.push(item)
+    }
+    objValues.forEach((letter, pos) => {
+    if(letter === item) {
+      convertStr.push(objKeys[pos]);
+    }})
+  });
+  let endArr = [];
+  for(let symbols of convertStr) {
+      symbols = symbols.replace(/[-]/gi, 11).replace(/[.]/gi, 10)
+    if(symbols.length < 10 && symbols !== "*") {
+      let count = symbols.length;
+      let zero = "0"
+      while(count < 10) {
+        symbols = zero + symbols;
+        count++;
+      }
+    }
+      endArr.push(symbols);
+  }
+  return endArr.join('');
 }
