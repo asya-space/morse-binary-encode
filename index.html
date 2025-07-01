@@ -9,7 +9,7 @@
             }
 
             body {
-                margin: 0;
+                margin: 0 auto;
                 padding: 2rem;
                 display: flex;
                 flex-direction: column;
@@ -19,12 +19,30 @@
                 background-color: #0a0a0a;
                 color: #f3f3f3;
                 transition: all 0.3s ease;
+                overflow-x: hidden;
             }
 
-            h1 {
+            .container {
+                padding-top: 7rem;
+                display: flex;
+            }
+
+            .left-column {
+                margin-right: 5rem;
+            }
+
+            h1,
+            h2 {
+                margin: 0;
+                margin-bottom: 3rem;
                 color: #ffa94d;
                 margin-bottom: 2rem;
                 text-align: center;
+            }
+
+            h2 {
+                font-size: 2em;
+                color: #6cb3fa;
             }
 
             input, button {
@@ -47,14 +65,19 @@
                 color: #aaa;
             }
 
-            button {
+            button,
+            .btn {
                 margin-bottom: 2rem;
                 font-weight: bold;
                 background-color: rgba(255, 165, 0, 0.15);
                 color: #ffa94d;
                 cursor: pointer;
-                box-shadow: 0 0 0 rgba(255, 165, 0, 0);
                 transition: all 0.3s ease;
+            }
+
+            .btn {
+                color: #6cb3fa;
+                background-color: rgba(13, 0, 255, 0.15);
             }
 
             button:hover {
@@ -66,9 +89,18 @@
                     0 0 16px rgba(255, 165, 0, 0.2);
             }
 
-            #output {
+            .btn:hover {
+                background-color: rgba(13, 0, 255, 0.3);
+                color: #d1e9f9;
+                box-shadow: 
+                    0 0 8px rgb(0, 148, 254),
+                    0 0 12px rgba(106, 103, 255, 0.4),
+                    0 0 16px rgba(0, 98, 255, 0.2);
+            }
+
+            #output,
+            #showText {
                 padding: 1rem;
-                width: 100%;
                 max-width: 500px;
                 min-height: 60px;
                 background-color: rgba(255, 255, 255, 0.1);
@@ -79,6 +111,21 @@
                 box-shadow: 0 0 10px rgba(255, 165, 0, 0.1);
             }
 
+            #showText {
+                box-shadow: 0 0 10px rgba(0, 98, 255, 0.2);
+            }
+
+            @media (max-width: 1015px) {
+                .container {
+                    flex-direction: column;
+                }
+
+                .left-column {
+                    margin-right: 0;
+                    margin-bottom: 5rem;
+                }
+            }
+
             @media (max-width: 768px) {
                 body {
                     padding: 1rem;
@@ -86,22 +133,37 @@
 
                 input, 
                 button, 
-                #output {
+                #output,
+                #showText {
                     max-width: 100%;
                 }
 
-                h1 {
+                h1,
+                h2 {
                     font-size: 1.5rem;
                 }
             }
         </style>
     </head>
     <body>
-        <h1>💫 Encode to binary Morse</h1>
-        <input id="inputText" type="text" placeholder="Enter text please. Example: Don't try to find me">
-        <button onclick="encode()">Encode?</button>
-        <h3>☑️ Result:</h3>
-        <div id="output"></div>
+        <main>
+            <div class="container">
+                <div class="left-column">
+                    <h1>💫 Encode to binary Morse</h1>
+                    <input id="inputText" type="text" placeholder="Example: Star Wars">
+                    <button onclick="encode()">Encode?</button>
+                    <h3>☑️ Result:</h3>
+                    <div id="output"></div>
+                </div>
+                <div class="right-column">
+                    <h2>❄️ Decode from binary Morse</h2>
+                    <input id="enterCode" type="text" placeholder="0000001011**********0011101010">
+                    <button class="btn" onclick="decode()">Decode?</button>
+                    <h3>☑️ Result:</h3>
+                    <div id="showText"></div>
+                </div>
+            </div>
+        </main>
         <script src="src/script.js"></script>
     </body>
 </html>
